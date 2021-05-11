@@ -1,0 +1,68 @@
+@import url('https://fonts.google.com/specimen/Lexend+Deca');
+@import url('https://fonts.google.com/specimen/Big+Shoulders+Display');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.greyclass {
+    background-color: hsl(0, 0%, 95%) 
+
+}
+
+/*web design too fucking cancerous alr*/
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+@media (max-width: 375px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+p {
+    font-family: "Lexend Deca";
+    font-weight: 400;
+    font-size: 15px;
+    color: hsla(0, 0%, 100%, 0.75);
+    text-align: center;
+    margin-top: 100px;
+    
+}
+
+h2 {
+    font-family: "Big Shoulders Display";
+    font-weight: 700;
+    color: hsl(0, 0%, 95%);
+
+}
+
+#sedan {
+    background-color: hsl(31, 77%, 52%);
+    width: 300px;
+
+    height: 500px
+    
+
+}
+
+#suv {
+    background-color: hsl(184, 100%, 22%);
+    width: 300px;
+    height: 500px
+}
+
+#luxury {
+    background-color: hsl(179, 100%, 13%);
+    width: 300px;
+    height: 500px
+}
