@@ -1,0 +1,8 @@
+What have I learnt?
+1) To center all the divs itself, you have to expand the flexbox to 100vh as by default the flexbox is dependent on the size of the div containers (children) then justify-content: center;
+   align-items: center;
+2) To make all the text start at the same position, do text-align: left;
+3) You can set a fixed width for a paragraph block and do not need a containers
+4) To make the sides of the div round, do border-radius (You do not need to make a custom border)
+5) You cannot move a span block, do an inline block (as paddings etc are respected) (to create a link that looks like a "button" , use inline-block)
+6) To make a flexbox vertical -> flex-direction: column;
