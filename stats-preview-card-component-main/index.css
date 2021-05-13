@@ -29,6 +29,8 @@ body {
   position: relative;
   bottom: 2px;
   width: 600px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 h1 {
@@ -80,17 +82,10 @@ h1 span {
   }
 
   .flex-container-child div {
-    margin-left: auto;
-    margin-right: auto;
     font-size: 4vw;
     position: relative;
     bottom: 50px;
     text-align: center;
-  }
-
-  #purple-container {
-    width: 90%;
-    height: 550px;
   }
 
   img {
@@ -130,5 +125,12 @@ h1 span {
 
   h1 {
     font-size: 7vw;
+  }
+
+  #purple-container {
+    width: 90%;
+    height: 550px;
+    margin-right: auto !important;
+    margin-left: auto !important;
   }
 }
