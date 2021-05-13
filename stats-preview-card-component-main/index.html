@@ -15,21 +15,24 @@
     <title>Frontend Mentor | Stats preview card component</title>
   </head>
   <body>
-    <div>
-      <div>
-        <h2>Get insights that help your business grow.</h2>
+    <div class="flex-container">
+      <div id="purple-container">
+        <h1>Get <span>insights</span> that help your business grow.</h1>
         <p>
           Discover the benefits of data analytics and make better decisions
           regarding revenue, customer experience, and overall efficiency.
         </p>
-        <div>
-          <div>10k<br>COMPANIES</div>
-          <div>314<br>TEMPLATES</div>
-          <div>12M+<br> QUERIES</div>
+        <div class="flex-container-child">
+          <div style="margin-left: 60px;"><h3>10k</h3>COMPANIES</div>
+          <div><h3>314</h3>TEMPLATES</div>
+          <div><h3>12M+</h3>QUERIES</div>
         </div>
       </div>
       <div>
+        <picture>
+        <source srcset="./images/image-header-mobile.jpg" media="(max-width: 375px)">
         <img src="./images/image-header-desktop.jpg" alt="Productiveness" />
+        </picture>
       </div>
     </div>
   </body>
