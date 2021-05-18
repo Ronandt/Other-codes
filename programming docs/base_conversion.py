@@ -21,7 +21,7 @@ while 1:
     if y % 1 != 0:
         b = y % 1 * v
         y -= y % 1
-        for l in range(10):
+        for l in range(11):
             p.append(str(int(b // 1)))
             b = b % 1 * v
         if v <= 10:
