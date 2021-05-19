@@ -3,10 +3,14 @@ while 1:
         y = float(input("What Number (Press any character to quit): "))
         #u = int(input("What base do you want to convert from?"))
         v = int(input("What base (Up to 16) do you want to convert to: "))
+        if v > 16 or v <= 1:
+            print("Invalid input!")
+            continue
     except ValueError:
         print("Quit!")
         break
     n = '0'
+
     f = []
     p = []
     k = ""
@@ -28,8 +32,6 @@ while 1:
             n = "".join(p) 
         elif 10 < v <= 16:
             n = "".join([dict[x] if int(x) >= 10 else x for x in p]) 
-        else:
-            pass
     while y != 0:
         f.append(str(int(y % v)))
         y //= v
@@ -37,6 +39,4 @@ while 1:
         o = "".join(f)[::-1]
     elif 10 < v <=16:
         o = "".join([dict[x] if int(x) >= 10 else x for x in f][::-1])
-    else:
-        print("Invalid Input!")
     print(o + "." +  n)
