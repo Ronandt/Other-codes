@@ -117,10 +117,132 @@ public class pgressJava {
 		}
 	}
 	
-	public void gpa() {
-		HashMap<Float, String> gpa_hash = new HashMap<Float,String>();
+	public void Q3GradeConvert() {
+		HashMap<Character, Float> gpa_hash = new HashMap<Character,Float>();
+		gpa_hash.put('A', 4.0F);
+		gpa_hash.put('B', 3.0F);
+		gpa_hash.put('C', 2.0F);
+		gpa_hash.put('D', 1.0F);
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("What is your grade: ");
+		Character gpa = scanner.nextLine().charAt(0);
+		System.out.println("Your gpa is " + gpa_hash.get(gpa));
+		
+		
+		
 	}
 	
+	public void Q6TicketPrice() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter age: ");
+		int age = Integer.parseInt(scanner.nextLine());
+		System.out.print("Enter day of the week: ");
+		byte day = Byte.parseByte(scanner.nextLine());
+		float ticketPrice;
+		
+		if (day == 6 || day == 7) {
+			System.out.println("You have to pay $10.00 for the ticket.");
+			java.lang.System.exit(0);
+		}
+		else if (day > 7 || day < 0) {
+			throw new IllegalArgumentException("Please input a proper day!");
+		}
+		else {
+
+		if (age < 16 && age >= 0) {
+			ticketPrice = 7.5f;
+		}
+		
+		else if (age >= 16 && age < 65) {
+			ticketPrice = 10f;
+		}
+		
+		else if (age >= 65 && age <= 130) {
+			ticketPrice = 5.5f;
+		}
+		
+		else {
+			throw new IllegalArgumentException("Age cannot be negative!");
+		}
+		String formattedTicketPrice = String.format("%.2f", ticketPrice);
+		System.out.println("You have to pay $" + formattedTicketPrice + " for the ticket.");
+		}
+		
+	}
+	
+	public void bmi_assess() {
+		Scanner scanner = new Scanner(System.in);
+		try {
+		System.out.print("Enter your weight (kg): ");
+		float weight = Float.parseFloat(scanner.nextLine());
+		System.out.print("Enter your height (m): ");
+		float height = Float.parseFloat(scanner.nextLine());
+		float bmi_calc = Math.max(weight/height, 0f);
+		
+		String bmi_assessment;
+		if (bmi_calc >= 27.5) {
+			bmi_assessment = "Obese";
+		}
+		
+		else if (bmi_calc < 27.5 && bmi_calc >= 23) {
+			bmi_assessment = "Overweight";
+
+		}
+		
+		else if (bmi_calc < 23 && bmi_calc >= 18.5) {
+			bmi_assessment ="Normal";
+		}
+		
+		else {
+			bmi_assessment = "Underweight";
+		}
+		
+		String bmi_calc_formatted = String.format("%.2f", bmi_calc);
+		System.out.println("Your BMI is " + bmi_calc_formatted + " and you are " + bmi_assessment);
+		}
+		
+		catch (IllegalArgumentException i) {
+			System.out.println("Invalid Input! Please try again.");
+		}
+	}
+	
+	public void bmi_best() {
+		Scanner scanner = new Scanner(System.in);
+		try {
+		System.out.print("Enter your height: ");
+		float height = Float.parseFloat(scanner.nextLine());
+		System.out.println("Your ideal height is " + 18.5 * height + " - " + 22.9 * height);
+		}
+		
+		catch (IllegalArgumentException i) {
+			System.out.println("Invalid Input! Please try again.");
+		}
+		
+		catch (NullPointerException i) {
+			System.out.println("Something is null lmao");
+		}
+	}
+	
+	public void sumForLoop() {
+		long sum = 0;
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter number: ");
+		int num = Integer.parseInt(scanner.nextLine());
+		for (;0 < num; num--) {
+			sum += num;
+		}
+		System.out.println(sum);
+		
+		
+	}
+	
+	public void sumWhileLoop() {
+		;
+	}
+	
+	public void wheelOfFortune() {
+		
+	}
 	
 	
 	
@@ -135,6 +257,12 @@ public class pgressJava {
 		//Questions.temperature();
 		//Questions.timeChallenge();
 		//Questions.Optional();
+		//Questions.Q3GradeConvert();
+		//Questions.Q6TicketPrice();
+		//Questions.bmi_assess();
+		//Questions.bmi_best();
+		Questions.sumForLoop();
+
 		
 
 		
