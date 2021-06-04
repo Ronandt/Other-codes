@@ -1,8 +1,13 @@
+import sys
 while 1:
     try:
         y = float(input("What Number (Press any character to quit): "))
         #u = int(input("What base do you want to convert from?"))
         v = int(input("What base (Up to 16) do you want to convert to: "))
+        z = int(input("What is the precision you want to set it to: "))
+        if z < 0:
+            print("Precision cannot be negative!")
+            sys.exit()
     except ValueError:
         print("Quit!")
         break
@@ -21,7 +26,7 @@ while 1:
     if y % 1 != 0:
         b = y % 1 * v
         y -= y % 1
-        for l in range(11):
+        for l in range(z):
             p.append(str(int(b // 1)))
             b = b % 1 * v
         if v <= 10:
@@ -39,4 +44,6 @@ while 1:
         o = "".join([dict[x] if int(x) >= 10 else x for x in f][::-1])
     else:
         print("Invalid Input!")
+        sys.exit()
+
     print(o + "." +  n)
