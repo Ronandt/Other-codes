@@ -1,0 +1,1790 @@
+6 kyu
+Replace With Alphabet Position
+Python:
+def alphabet_position(text):
+    return " ".join([str("abcdefghijklmnopqrstuvwxyz".index(x.lower()) + 1) for x in text if x.isalpha()])
+    
+
+    
+    
+    
+25 minutes agoRefactor
+def alphabet_position(text):
+    return " ".join([str("abcdefghijklmnopqrstuvwxyz".index(c) + 1) for c in [x.lower() for x in text if x.isalpha()]])
+
+       
+    
+5 days agoRefactor
+def alphabet_position(text):
+    ord = list("abcdefghijklmnopqrstuvwxyz")
+    return " ".join([str(ord.index(x.lower()) + 1) for x in text if x.lower() in "abcdefghijklmnopqrstuvwxyz"])
+    
+
+    
+    
+    
+3 months agoRefactor
+5 kyu
+int32 to IPv4
+Python:
+def int32_to_ip(int32):
+    m = []
+    c = []
+    i = 0
+    for x in '0' * (32 - len(bin(int32)[2:])) + bin(int32)[2:]:
+        c.append(x)
+        i += 1
+        if i == 8:
+            i = 0
+            m.append(''.join(c))
+            c.clear()
+    for y in range(0, 4):
+        m[y] = str(int(m[y], 2))
+    return '.'.join(m)
+46 minutes agoRefactorDiscuss
+def int32_to_ip(int32):
+    m = []
+    c = []
+    i = 0
+    for x in '0' * (32 - len(bin(int32)[2:])) + bin(int32)[2:]:
+        if i == 8:
+            i = 0
+            m.append(''.join(c))
+            c.clear()
+        c.append(x)
+        i += 1
+    m.append(''.join(c))
+    for y in range(0, 4):
+        m[y] = str(int(m[y], 2))
+    return '.'.join(m)
+    
+            
+an hour agoRefactorDiscuss
+5 kyu
+Memoized Fibonacci
+Python:
+dict = {}
+def fibonacci(n):
+    if n in [0, 1]:
+        return n
+    elif n not in dict:
+        dict[n] = fibonacci(n-1) + fibonacci(n-2)
+    return dict[n] 
+2 days agoRefactorDiscuss
+cache = {}
+def fibonacci(n):
+    if n in cache:
+        ans = cache[n]
+    elif n <= 2:
+        ans = 1
+        cache[n] = ans
+    else:
+        ans = fibonacci(n - 2) + fibonacci(n - 1)
+        cache[n] = ans
+    return ans
+
+        
+    
+2 months agoRefactorDiscuss
+7 kyu
+Odd or Even?
+Python:
+def odd_or_even(arr):
+    return 'odd' if sum(arr) % 2 != 0 else 'even'
+4 days agoRefactor
+def odd_or_even(arr):
+    i = sum(arr) % 2
+    if i == 0:
+        return "even"
+    else:
+        return "odd"
+3 months agoRefactorDiscuss
+7 kyu
+Largest pair sum in array
+Python:
+def largest_pair_sum(numbers): 
+    b = sorted(numbers)
+    return b[-1] + b[-2]
+5 days agoRefactorDiscuss
+8 kyu
+Sum The Strings
+Python:
+def sum_str(a, b):
+    if a == "":
+        a = 0
+    if b == "":
+        b = 0
+    return str(int(a) + int(b))
+last weekRefactorDiscuss
+5 kyu
+Maximum subarray sum
+Python:
+def max_sequence(arr):
+    x, y = 0, 0
+    for c in arr:
+        y = max(0, y + c)
+        x = max(x, y)
+    return x
+last weekRefactorDiscuss
+def max_sequence(arr):
+    count = 0
+    M = [0]
+    for i in arr:
+        count += i
+        if count < 0:
+            count = 0
+        M.append(count)
+    return max(M)
+        
+        
+2 months agoRefactorDiscuss
+def max_sequence(arr):
+    c, b= 0, 0
+    for i in arr:
+        c = max(0, c + i)
+        b = max(b, c)
+    return b
+    
+        
+2 months agoRefactorDiscuss
+8 kyu
+Returning Strings
+Python:
+def greet(name):
+    return f"Hello, {name} how are you doing today?"
+2 weeks agoRefactorDiscuss
+6 kyu
+Break camelCase
+Python:
+def solution(s):
+    return "".join([" " + x if x.isupper() else x for x in s])
+2 weeks agoRefactor
+def solution(s):
+    y = []
+    m = []
+    for x in range(len(s)):
+        if s[x].isupper():
+            m.append("".join(y))
+            y.clear()
+        y.append(s[x])
+    m.append("".join(y))
+    return " ".join(m)
+        
+2 weeks agoRefactorDiscuss
+7 kyu
+Binary Addition
+Python:
+def add_binary(a,b):
+        return "{0:b}".format(int(a + b))
+        
+        
+2 weeks agoRefactorDiscuss
+7 kyu
+Simple remove duplicates
+Python:
+def solve(arr): 
+    o = []
+    for x in arr[::-1]:
+        if x not in o:
+            o.append(x)
+    return o[::-1]
+
+
+        
+        
+        
+2 weeks agoRefactor
+7 kyu
+Find the next perfect square!
+Python:
+def find_next_square(sq):
+    return (sq ** (1/2)+ 1) ** 2 if sq ** (1/2) % 1 == 0 else -1
+2 weeks agoRefactor
+def find_next_square(sq):
+    return -1 if sq**(1/2) % 1 != 0 else ((sq)**(1/2) + 1)**2 
+2 months agoRefactorDiscuss
+7 kyu
+Friend or Foe?
+Python:
+def friend(x):
+    return [i for i in x if len(i) == 4]
+2 weeks agoRefactorDiscuss
+6 kyu
+Find the missing letter
+Python:
+def find_missing_letter(chars):
+    ord = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    for x in range(0, len(chars)):
+        if ord.index(chars[x + 1]) - ord.index(chars[x]) == 2:
+            return ord[(ord.index(chars[x + 1]) + ord.index(chars[x]))//2]
+
+4 weeks agoRefactorDiscuss
+def find_missing_letter(chars):
+    my_ord = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    return "".join([letter for letter in my_ord[my_ord.index(chars[0]): my_ord.index(chars[-1])] if letter not in chars])
+    
+        
+        
+
+
+2 months agoRefactorDiscuss
+7 kyu
+Anagram Detection
+Python:
+# write the function is_anagram
+def is_anagram(test, original):
+    return True if sorted(test.lower()) == sorted(original.lower()) else False
+4 weeks agoRefactorDiscuss
+7 kyu
+Average Scores
+Python:
+def average(array):
+    return round(sum(array)/len(array), 0)
+4 weeks agoRefactorDiscuss
+7 kyu
+The highest profit wins!
+Python:
+def min_max(lst):
+    yes = [min(lst), max(lst)]
+    return yes
+4 weeks agoRefactorDiscuss
+8 kyu
+Abbreviate a Two Word Name
+Python:
+def abbrev_name(name):
+    return name.split(" ")[0][0].upper() + "." + name.split(" ")[1][0].upper()
+last monthRefactorDiscuss
+7 kyu
+Sort Numbers
+Python:
+def solution(nums):
+    return [] if nums == None else sorted(nums)
+last monthRefactorDiscuss
+6 kyu
+Find the missing term in an Arithmetic Progression
+Python:
+def find_missing(sequence):
+    seq = [sequence[x + 1] - sequence[x] for x in range(3)]
+    progression: 0
+    for jump in set(seq):
+        if seq.count(jump) > 1:
+            progression = jump
+    for y in range(len(sequence)):
+        if sequence[y + 1] - sequence[y] == progression * 2:
+            return sequence[y] + progression
+last monthRefactor
+def find_missing(sequence):
+    seq = [sequence[x + 1] - sequence[x] for x in range(3)]
+    progression: 0
+    for jump in set(seq):
+        if seq.count(jump) > 1:
+            progression = jump
+    for y in range(len(sequence)):
+        if sequence[y + 1] - sequence[y] == progression * 2:
+            return sequence[y] + progression
+last monthRefactorDiscuss
+def find_missing(sequence):
+    progression = min([sequence[x + 1] - sequence[x] for x in range(3)])
+    for y in range(len(sequence)):
+        if sequence[y + 1] - sequence[y] == progression * 2:
+            return sequence[y] + progression
+last monthRefactorDiscuss
+def find_missing(sequence):
+    seq = [sequence[x + 1] - sequence[x] for x in range(3)]
+    progression: 0
+    for jump in set(seq):
+        if seq.count(jump) > 1:
+            progression = jump
+    for y in range(len(sequence)):
+        if sequence[y + 1] - sequence[y] == progression * 2:
+            return sequence[y] + progression
+            
+        
+            
+        
+    
+last monthRefactor
+7 kyu
+Substituting Variables Into Strings: Padded Numbers
+Python:
+def solution(value):
+    return "Value is" + " " + (5 - len(str(value))) * "0" + str(value)
+last monthRefactorDiscuss
+6 kyu
+CamelCase Method
+Python:
+def camel_case(string):
+    return "".join([x.capitalize() for x in string.split(" ")])
+last monthRefactorDiscuss
+6 kyu
+Count characters in your string
+Python:
+def count(string):
+    dict = {}
+    for letter in set(string):
+        dict[letter] = string.count(letter)
+    return dict
+        
+last monthRefactorDiscuss
+6 kyu
+Consonant value
+Python:
+def solve(s):
+    ord = list("abcdefghijklmnopqrstuvwxyz")
+    count = 0
+    m = []
+    for x in s:
+        if x in list("aeiou"):
+            m.append(count)
+            count = 0
+            continue
+        count += ord.index(x) + 1
+    return max(m)
+
+            
+        
+        
+last monthRefactorDiscuss
+7 kyu
+Sort array by string length
+Python:
+def sort_by_length(arr):
+    m = []
+    for i,c in sorted(list(zip([len(x) for x in arr], arr))):
+        m.append(c)
+    return m
+        
+last monthRefactorDiscuss
+7 kyu
+Sum of a sequence
+Python:
+def sequence_sum(begin_number, end_number, step):
+    return sum([i for i in range(begin_number, end_number + 1, step)])
+last monthRefactorDiscuss
+7 kyu
+Find the stray number
+Python:
+def stray(arr):
+    for i in set(arr):
+        if arr.count(i) == 1:
+            return i
+last monthRefactorDiscuss
+6 kyu
+Are they the "same"?
+Python:
+def comp(array1, array2):
+    return False if array1 == None or array2 == None else sorted([i**2 for i in array1]) == sorted(array2)
+    
+2 months agoRefactor
+def comp(array1, array2):
+    if array1 == None or array2 == None or len(array1) != len(array2):
+        return False
+    for i in array1:
+        if i**2 not in array2:
+            return False
+        array2.remove(i**2)
+    return True
+    
+2 months agoRefactorDiscuss
+6 kyu
+Give me a Diamond
+Python:
+def diamond(n):
+    x, i, blank = 1, n//2, []
+    while n > x:
+        blank.append(i * " " + "*" * x + "\n")
+        x += 2
+        i -= 1
+    while x >= 1:
+        blank.append(" " * i + "*" * x + "\n")
+        x -=2
+        i += 1
+    return "".join(blank) if n % 2 != 0 and n > 0 else None
+last monthRefactorDiscuss
+def diamond(n):
+    x = 1
+    i = n // 2
+    blank = []
+    while n > x:
+        blank.append(i * " " + "*" * x + "\n")
+        x += 2
+        i -= 1
+    while x >= 1:
+        blank.append(" " * i + "*" * x + "\n")
+        x -=2
+        i += 1
+    return "".join(blank) if n % 2 != 0 and n > 0 else None
+        
+last monthRefactorDiscuss
+5 kyu
+Rot13
+Python:
+def rot13(message):
+    alphabet, upper, blank = list("abcdefghijklmnopqrstuvwxyz"), list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), []
+    listed_message = list(message)
+    for letter in listed_message:
+        if letter.islower():
+            cipher_index = (alphabet.index(letter) + 13) % 26
+            blank.append(alphabet[cipher_index])
+        elif letter.isupper():
+            cipher_index_2 = (upper.index(letter) + 13) % 26
+            blank.append(upper[cipher_index_2])
+        else:
+            blank.append(letter)
+    return "".join(blank)
+2 months agoRefactorDiscuss
+def rot13(message):
+    alphabet, upper, blank = list("abcdefghijklmnopqrstuvwxyz"), list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), ""
+    listed_message = list(message)
+    for letter in listed_message:
+        if letter.islower():
+            cipher_index = (alphabet.index(letter) + 13) % 26
+            blank += alphabet[cipher_index]
+        elif letter.isupper():
+            cipher_index_2 = (upper.index(letter) + 13) % 26
+            blank += upper[cipher_index_2]
+        else:
+            blank += letter
+    return blank
+ 
+    
+3 months agoRefactorDiscuss
+8 kyu
+Convert boolean values to strings 'Yes' or 'No'.
+Python:
+def bool_to_word(boolean):
+    return 'Yes' if boolean == True else 'No'
+2 months agoRefactor
+def bool_to_word(boolean):
+    if boolean is True:
+        return 'Yes'
+    else:
+        return 'No'
+3 months agoRefactorDiscuss
+6 kyu
+Which are in?
+Python:
+def in_array(array1, array2):
+    M = []
+    for x in array1:
+        for y in array2:
+            if x in y:
+                M.append(x)
+    return sorted(set(M))
+2 months agoRefactorDiscuss
+def in_array(array1, array2):
+    M = []
+    for x in array1:
+        for y in array2:
+            if x in y and x not in M:
+                M.append(x)
+    return sorted(M)
+                
+    
+            
+    
+2 months agoRefactorDiscuss
+6 kyu
+Sort the odd
+Python:
+def sort_array(source_array):
+    odd_array = sorted([odd for odd in source_array if odd % 2 != 0])
+    i = 0
+    for x in range(len(source_array)):
+        if source_array[x] % 2 != 0:
+            source_array[x] = odd_array[i]
+            i += 1
+    return source_array
+    
+    
+2 months agoRefactorDiscuss
+5 kyu
+First non-repeating character
+Python:
+def first_non_repeating_letter(string):
+    for letter in range(len(string)):
+        if string.lower().count(string.lower()[letter]) == 1:
+            return string[letter]
+    return ""
+2 months agoRefactorDiscuss
+6 kyu
+WeIrD StRiNg CaSe
+Python:
+def to_weird_case(string):
+    blank, count = [], 0
+    for letter in string.upper():
+        if count % 2 != 0:
+            blank.append(letter.lower())
+        else:
+            blank.append(letter)
+        if letter == " ":
+            count = 1
+        count += 1
+    return "".join(blank)
+    
+2 months agoRefactorDiscuss
+def to_weird_case(string):
+    blank, count = "", 0
+    for letter in string.upper():
+        if count % 2 != 0:
+            blank += letter.lower()
+        else:
+            blank += letter
+        if letter == " ":
+            count = 1
+        count += 1
+    return blank
+2 months agoRefactorDiscuss
+def to_weird_case(string):
+    blank = ""
+    for word in string.split(" "):
+        count = 0
+        for letter in word:
+            if count % 2 != 0:
+                blank += letter.lower()
+            else:
+                blank += letter.upper()
+            count += 1
+        blank += " "
+    return blank.strip()
+            
+    
+            
+    
+            
+            
+            
+
+
+    
+2 months agoRefactorDiscuss
+6 kyu
+Dubstep
+Python:
+def song_decoder(song):
+    return " ".join((song.replace("WUB", " ")).split())
+2 months agoRefactor
+def song_decoder(song):
+    return " ".join([x for x in song.split("WUB") if x.isalpha()])
+2 months agoRefactorDiscuss
+6 kyu
+Your order, please
+Python:
+def order(sentence):
+    splited = sentence.split()
+    for index, word in list(zip([int(i) for i in sentence if i in "123456789"], splited)):
+        splited[index - 1] = word
+    return " ".join(splited)
+        
+    
+   
+2 months agoRefactor
+6 kyu
+Vasya - Clerk
+Python:
+def tickets(people):
+    a, b, c = [], [], []
+    for money in people:
+        if money == 25:
+            a.append(money)
+        elif money == 50:
+            b.append(money)
+            if len(a) == 0:
+                return "NO"
+            a.pop(0)
+        elif money == 100:
+            c.append(money)
+            if len(a) >= 1 and len(b) >= 1:
+                a.pop(0)
+                b.pop(0)
+                continue
+            elif len(a) >= 3:
+                for x in range(3):
+                    a.pop(0)
+            else:
+                return "NO"
+    return "YES"
+2 months agoRefactorDiscuss
+
+def tickets(people):
+    a, b, c = [], [], []
+    for money in people:
+        if money == 25:
+            a.append(money)
+        elif money == 50:
+            b.append(money)
+            if len(a) == 0:
+                return "NO"
+            a.pop(0)
+        elif money == 100:
+            c.append(money)
+            if len(a) >= 1 and len(b) >= 1:
+                a.pop(0)
+                b.pop(0)
+                continue
+            elif len(a) >= 3:
+                a.pop(0)
+                a.pop(0)
+                a.pop(0)
+            else:
+                return "NO"
+    return "YES"
+            
+2 months agoRefactorDiscuss
+7 kyu
+Find the divisors!
+Python:
+def divisors(integer):
+    a = [x for x in range(2, (integer // 2) + 1) if integer % x == 0]
+    return a if len(a) > 0 else f"{integer} is prime"
+2 months agoRefactorDiscuss
+def divisors(integer):
+    count, listed = 2, []
+    while count < (integer // 2) + 1:
+        if integer % count == 0:
+            listed.append(count)
+        count += 1
+    if len(listed) == 0:
+        return f"{integer} is prime"
+    return listed
+2 months agoRefactorDiscuss
+7 kyu
+Isograms
+Python:
+def is_isogram(string):
+    for x in set(string.lower()):
+        if string.lower().count(x) > 1:
+            return False
+    return True
+2 months agoRefactor
+7 kyu
+You're a square!
+Python:
+def is_square(n):
+    if n < 0:
+        return False
+    if n == 0:
+        return True
+    return n % n ** (1/2) == 0
+    
+        
+    
+    
+2 months agoRefactorDiscuss
+7 kyu
+Highest and Lowest
+Python:
+def high_and_low(numbers):
+    sorting = sorted([int(x) for x in numbers.split()])
+    return str(sorting[-1]) + " " +  str(sorting[0])
+    
+2 months agoRefactor
+7 kyu
+Descending Order
+Python:
+def descending_order(num):
+    return int("".join(sorted(str(num))[::-1]))
+2 months agoRefactor
+8 kyu
+Basic Mathematical Operations
+Python:
+def basic_op(operator, value1, value2):
+    if operator == "+":
+        return value1 + value2
+    elif operator == "-":
+        return value1 - value2
+    elif operator == "*":
+        return value1 * value2
+    elif operator == "/":
+        return value1 / value2
+2 months agoRefactorDiscuss
+8 kyu
+Is n divisible by x and y?
+Python:
+def is_divisible(n,x,y):
+    if n % x != 0 or n % y != 0:
+        return False
+    return True
+        
+2 months agoRefactorDiscuss
+8 kyu
+The Wide-Mouthed frog!
+Python:
+def mouth_size(animal): 
+    if animal.lower() == "alligator":
+        return "small"
+    return "wide"
+2 months agoRefactorDiscuss
+8 kyu
+Century From Year
+Python:
+from math import ceil
+def century(year):
+    return ceil(year/100)
+    
+2 months agoRefactorDiscuss
+8 kyu
+Square(n) Sum
+Python:
+def square_sum(numbers):
+    return sum([x**2 for x in numbers])
+2 months agoRefactorDiscuss
+6 kyu
+Highest Scoring Word
+Python:
+def high(x):
+    ord, best_count = list("abcdefghijklmnopqrstuvwxyz"), []
+    for word in x.split():
+        count = 0
+        best_count.append(sum([ord.index(letter) + 1 for letter in word]))
+    return x.split()[best_count.index(max(best_count))]    
+    
+2 months agoRefactorDiscuss
+def high(x): 
+    ord, best_count = list("abcdefghijklmnopqrstuvwxyz"), {}
+    for word in x.split():
+        count = 0
+        for letter in word:
+            count += ord.index(letter) + 1
+        if count not in best_count:
+            best_count[count] = word
+    return best_count[max(best_count)]
+2 months agoRefactorDiscuss
+def high(x):
+    
+    ord, best_count = list("abcdefghijklmnopqrstuvwxyz"), []
+    for word in x.split():
+        count = 0
+        for letter in word:
+            count += ord.index(letter) + 1
+        best_count.append(count)
+    return x.split()[best_count.index(max(best_count))]       
+            
+2 months agoRefactorDiscuss
+8 kyu
+Find the smallest integer in the array
+Python:
+def find_smallest_int(a):
+    return min(a)
+2 months agoRefactorDiscuss
+8 kyu
+Counting sheep...
+Python:
+def count_sheeps(sheep):
+    return sheep.count(True)
+2 months agoRefactorDiscuss
+7 kyu
+Reverse a Number
+Python:
+def reverse_number(n):
+    if n > 0: 
+        return int(str(abs(n))[::-1]) 
+    return int(str(abs(n))[::-1]) * -1
+    
+2 months agoRefactor
+def reverse_number(n):
+    value = int("".join([x for x in str(n) if x in "1234567890" ][::-1]))
+    if n < 0: 
+        return value - value * 2
+    return value
+2 months agoRefactorDiscuss
+6 kyu
+Title Case
+Python:
+def title_case(title, minor_words=''):
+    M = title.split()
+    if len(title) > 0:
+        c =  M[0].capitalize() + " " + " ".join([x.capitalize() if x not in minor_words.lower().split() else x for x in title.lower().split()[1:]])
+        return c.strip()
+    return title
+
+    
+2 months agoRefactorDiscuss
+7 kyu
+Simple Fun #176: Reverse Letter
+Python:
+def reverse_letter(string):
+    return "".join([x for x in string if x in "abcdefghijklmnopqrstuvwxyz"][::-1])
+
+    
+2 months agoRefactorDiscuss
+8 kyu
+Sum Arrays
+Python:
+def sum_array(a):
+    return sum(a)
+2 months agoRefactorDiscuss
+6 kyu
+A Rule of Divisibility by 13
+Python:
+def thirt(n):
+    b = [0, n]
+    while b[-1] != b[-2]:
+        c, a = 0, []
+        for i in str(n)[::-1]:
+            a.append(int(i) * ((10**c) % 13))
+            c += 1
+        n = sum(a)
+        b.append(n)
+    return n
+    
+2 months agoRefactorDiscuss
+6 kyu
+Duplicate Encoder
+Python:
+def duplicate_encode(word):
+    m = ""
+    for x in word:
+        if word.lower().count(x.lower()) >= 2:
+            m += ")"
+        else:
+            m += "("
+    return m
+            
+        
+        
+2 months agoRefactor
+6 kyu
+Who likes it?
+Python:
+def likes(names):
+    if len(names) <= 1:
+        names.append('no one')
+        return names[-len(names)] + " likes this"
+    elif len(names) == 2:
+        return "{} and {} like this".format(*names)
+    elif len(names) == 3:
+        return "{}, {} and {} like this".format(*names)
+    if len(names) >= 4:
+        yes = len(names) - 2
+        return names[0] + ', ' + names[1] + " and" + f" {yes} others like this"
+    
+        
+2 months agoRefactor
+6 kyu
+Create Phone Number
+Python:
+def create_phone_number(n):
+    u = [str(x) for x in n]
+    return "(" + u[0] + u[1] + u[2] + ")" + " " + u[3] + u[4] + u[5] + "-" + u[6] + u[7] + u[8] + u[9]
+2 months agoRefactor
+6 kyu
+Sums of Parts
+Python:
+def parts_sums(ls):
+    test = [sum(ls)]
+    save = sum(ls)
+    for i in ls:
+        save -= i
+        test.append(save)
+    return test
+2 months agoRefactorDiscuss
+7 kyu
+Ones and Zeros
+Python:
+def binary_array_to_number(arr):
+    power, listed = 0, []
+    for i in arr[::-1]:
+        if i == 1:
+            listed.append(2 ** power)
+        power += 1
+    return sum(listed)
+
+            
+        
+2 months agoRefactorDiscuss
+8 kyu
+Get Nth Even Number
+Python:
+def nth_even(n):
+    return (n*2) - 2
+2 months agoRefactorDiscuss
+6 kyu
+Delete occurrences of an element if it occurs more than n times
+Python:
+def delete_nth(order,max_e):
+    reverse = order[::-1]
+    for number in set(order):
+        if order.count(number) > max_e:
+            for x in range(order.count(number) - max_e):
+                reverse.remove(number)
+    return reverse[::-1]
+                
+            
+2 months agoRefactorDiscuss
+7 kyu
+String ends with?
+Python:
+def solution(string, ending):
+    return ending in string[-len(ending):]
+2 months agoRefactorDiscuss
+6 kyu
+Does my number look big in this?
+Python:
+def narcissistic( value ):
+    i = len(str(value))
+    result = []
+    for number in str(value):
+        result.append(int(number) ** i)
+    if sum(result) == value:
+        return True
+    return False
+        
+2 months agoRefactorDiscuss
+8 kyu
+Remove String Spaces
+Python:
+def no_space(x):
+    return "".join(x.split())
+2 months agoRefactorDiscuss
+6 kyu
+Split Strings
+Python:
+def solution(s):
+    split_double, i, x = [], 0, list(s)
+    if len(x) % 2 != 0:
+        x.append("_")
+    for c in range(int(len(x)/2)):
+        split_double.append(x[i + 0] + x[i + 1])
+        i += 2
+    return split_double
+        
+            
+2 months agoRefactorDiscuss
+6 kyu
+Unique In Order
+Python:
+def unique_in_order(iterable):
+    if len(iterable) > 0:
+        hold = [iterable[0]]
+        yes = [iterable[0]]
+        for word in iterable:
+            if word not in hold:
+                yes.append(word)
+                hold.append(word)
+                hold.pop(0)
+        return yes
+    return []
+        
+2 months agoRefactor
+7 kyu
+Reverse words
+Python:
+def reverse_words(text):
+    return " ".join([word[::-1] for word in text.split(' ')])
+2 months agoRefactorDiscuss
+7 kyu
+Sum of odd numbers
+Python:
+def row_sum_odd_numbers(n):
+    return n ** 3
+2 months agoRefactorDiscuss
+7 kyu
+Sum of two lowest positive integers
+Python:
+def sum_two_smallest_numbers(numbers):
+    return sum(sorted(numbers)[:2])
+2 months agoRefactorDiscuss
+7 kyu
+Credit Card Mask
+Python:
+# return masked string
+def maskify(cc):
+    if len(cc) > 4:
+        return "#" * (len(cc) - 4) + cc[-4:]
+    else:
+        return cc
+2 months agoRefactorDiscuss
+8 kyu
+Twice as old
+Python:
+def twice_as_old(dad_years_old, son_years_old):
+    return abs((dad_years_old - son_years_old) - son_years_old)
+    
+
+
+        
+2 months agoRefactorDiscuss
+7 kyu
+Two to One
+Python:
+def longest(a1, a2):
+    memory = []
+    for letter in a1 + a2:
+        if letter not in memory:
+            memory.append(letter)
+    return "".join(sorted(memory))
+        
+2 months agoRefactorDiscuss
+8 kyu
+Sum Mixed Array
+Python:
+def sum_mix(arr):
+    return sum([int(i) for i in arr])
+2 months agoRefactorDiscuss
+5 kyu
+Perimeter of squares in a rectangle
+Python:
+def perimeter(n):
+    #generate all the numbers (using finbonacci number), create a list , use "sum"
+    listed = [0, 1]
+    for i in range(n):
+        listed.append(listed[-1] + listed[-2])
+        
+    return sum(listed) * 4
+        
+        
+        
+        
+        
+        
+2 months agoRefactorDiscuss
+6 kyu
+Playing with digits
+Python:
+def dig_pow(n, p):
+    array_number = []
+    for number in str(n):
+        array_number.append(int(number) ** (p))
+        p += 1
+    if sum(array_number) // n != sum(array_number) / n:
+        return -1
+    return sum(array_number) / n
+
+    
+    
+        
+        
+2 months agoRefactorDiscuss
+6 kyu
+Write Number in Expanded Form
+Python:
+def expanded_form(num):
+    i = 0
+    array_zero = []
+    for number in str(num):
+        if number != "0":
+            array_zero.append(number + (len(str(num)) - i - 1) * "0")
+        i += 1  
+    return " + ".join(array_zero)
+2 months agoRefactorDiscuss
+6 kyu
+Counting Duplicates
+Python:
+def duplicate_count(text):
+    count = 0
+    for char in set(text.lower()):
+        if text.lower().count(char.lower()) > 1:
+            count += 1
+    return count
+
+     
+2 months agoRefactor
+8 kyu
+Find Maximum and Minimum Values of a List
+Python:
+def minimum(arr):
+    return min(arr)
+
+def maximum(arr):
+    return max(arr)
+    #...and here
+2 months agoRefactorDiscuss
+7 kyu
+Largest 5 digit number in a series
+Python:
+def solution(digits):
+    i = 99999
+    while str(i) not in digits:
+        i -= 1
+    return i
+2 months agoRefactorDiscuss
+7 kyu
+Exes and Ohs
+Python:
+def xo(s):
+    return s.lower().count("x") - s.lower().count("o") == 0
+2 months agoRefactorDiscuss
+6 kyu
+Tribonacci Sequence
+Python:
+def tribonacci(signature, n):
+    array = []
+    if n > 3:
+        array.extend(signature)
+        while len(array) < n:
+            array.append(sum(signature))
+            signature.append(sum(signature))
+            signature.pop(0)
+        return array
+    for x in signature:
+        if len(array) < n:
+            array.append(x)
+    return array
+        
+
+        
+            
+    
+        
+        
+        
+        
+        
+2 months agoRefactor
+8 kyu
+Is the string uppercase?
+Python:
+def is_uppercase(inp):
+    
+    return inp.isupper()
+2 months agoRefactorDiscuss
+6 kyu
+Find the unique number
+Python:
+def find_uniq(arr):
+    return  [x for x in set(arr) if arr.count(x) == 1][0]
+3 months agoRefactor
+def find_uniq(arr):
+    for x in set(arr):
+        if arr.count(x) == 1:
+            return x
+3 months agoRefactor
+def find_uniq(arr):
+    return float("".join([str(number) for number in set(arr) if arr.count(number) == 1]))
+3 months agoRefactorDiscuss
+8 kyu
+Opposites Attract
+Python:
+def lovefunc( flower1, flower2 ):
+    return (flower1 + flower2) % 2 != 0
+3 months agoRefactorDiscuss
+5 kyu
+Where my anagrams at?
+Python:
+def anagrams(word, words):
+    i = sorted(word)
+    return [x for x in words if sorted(x) == i]
+3 months agoRefactorDiscuss
+def anagrams(word, words):
+    return [x for x in words if sorted(x) == sorted(word)]
+3 months agoRefactorDiscuss
+5 kyu
+Moving Zeros To The End
+Python:
+def move_zeros(array):
+    counting = array.count(0)
+    variable = [number for number in array if number != 0]
+    for x in range(counting):
+        variable.append(0)
+    return variable
+        
+3 months agoRefactorDiscuss
+8 kyu
+You Can't Code Under Pressure #1
+Python:
+def double_integer(i):
+    return i * 2
+3 months agoRefactorDiscuss
+8 kyu
+Count Odd Numbers below n
+Python:
+def odd_count(n):
+    return n//2
+3 months agoRefactorDiscuss
+7 kyu
+Shortest Word
+Python:
+def find_short(s):
+    return min(len(letter) for letter in s.split(" "))
+3 months agoRefactorDiscuss
+6 kyu
+Roman Numerals Decoder
+Python:
+def solution(roman):
+    dictionary = {"I" : 1,
+                 "V" : 5,
+                 "X" : 10,
+                 "L" : 50,
+                 "C" : 100,
+                 "D" : 500,
+                 "M" : 1000}
+    return sum([dictionary[roman_numeral] for roman_numeral in roman]) - 2 * (roman.count("IV")) - 2 * (roman.count("IX")) - 200 * (roman.count("CD")) - 20 * (roman.count("XL")) - 200 * (roman.count("CM")) - 20 * (roman.count("XC"))
+3 months agoRefactorDiscuss
+6 kyu
+Find The Parity Outlier
+Python:
+
+def find_outlier(integers):
+    Even_list, Odd_list = [str(Even) for Even in integers if Even % 2 == 0], [str(Odd) for Odd in integers if Odd % 2 != 0]
+    if len(Even_list) > len(Odd_list):
+        return int("".join(Odd_list))
+    else:
+        return int("".join(Even_list))
+3 months agoRefactor
+6 kyu
+Multiples of 3 or 5
+Python:
+def solution(number):
+    numbered = 0
+    for single_number in range(number):
+        if single_number % 3 == 0 or single_number % 5 == 0:
+            numbered += single_number
+    return numbered
+3 months agoRefactor
+6 kyu
+Stop gninnipS My sdroW!
+Python:
+def spin_words(sentence):
+    return " ".join((word[::-1] if len(word) >= 5 else word for word in sentence.split(" ")))
+3 months agoRefactor
+def spin_words(sentence):
+    sentence_list = sentence.split(" ")
+    for word in sentence_list:
+        if len(word) >= 5:
+            sentence_list[sentence_list.index(word)] = word[::-1]
+    return " ".join(sentence_list)
+3 months agoRefactor
+6 kyu
+Persistent Bugger.
+Python:
+def persistence(n):
+    count = 0
+    saved_n = 1
+    while len(str(n)) > 1:
+        for number in str(n):
+            saved_n *= int(number)
+            print(saved_n)
+        count += 1
+        n = saved_n
+        saved_n = 1
+    return count
+3 months agoRefactor
+7 kyu
+Beginner Series #3 Sum of Numbers
+Python:
+def get_sum(a,b):
+    if b > a:
+        return sum((i for i in range(a,b + 1))) 
+    else:
+        return sum((i for i in range(b,a + 1)))
+3 months agoRefactorDiscuss
+6 kyu
+Bouncing Balls
+Python:
+def bouncing_ball(h, bounce, window):
+    if h > 0 and 1 > bounce > 0 and window < h:
+        count = 1
+        h *= bounce
+        while h > window:
+            count += 2
+            h *= bounce
+        return count
+    else:
+        return -1
+    
+    
+    
+3 months agoRefactorDiscuss
+5 kyu
+Number of trailing zeros of N!
+Python:
+def zeros(n):
+    i, count = 0, 0
+    while 5 ** (i + 1) < n:
+        i += 1
+        count += n //(5**i)
+    return count
+        
+3 months agoRefactorDiscuss
+from math import*
+def zeros(n):
+    i,count = 0,0
+    while 5**(i + 1) < n >= 5**i:
+        i += 1
+        count += floor(n/5**i)
+    return count
+        
+3 months agoRefactorDiscuss
+from math import*
+def zeros(n):
+    i,count = 0,0
+    while n > 5**i:
+        i += 1
+    for x in range(1,i):
+        count += floor(n/5**x)
+    return count
+    
+        
+3 months agoRefactorDiscuss
+8 kyu
+Reversed Words
+Python:
+def reverse_words(s):
+    return " ".join((s.split())[::-1])
+3 months agoRefactorDiscuss
+8 kyu
+Return Negative
+Python:
+
+def make_negative(number):
+    return -abs(number)
+    
+3 months agoRefactorDiscuss
+8 kyu
+Multiply
+Python:
+def multiply(a, b):
+    return a * b
+4 months agoRefactor
+JavaScript:
+function multiply(a, b){
+  return a * b
+}
+3 months agoRefactorDiscuss
+8 kyu
+Convert a Number to a String!
+Python:
+def number_to_string(num):
+    return str(num) 
+3 months agoRefactorDiscuss
+7 kyu
+Get the Middle Character
+Python:
+from math import*
+def get_middle(s):
+    if len(s) % 2 == 0:
+        return s[int((len(s) -1)/2)] + s[int(((len(s)-1)/2) + 1)]
+    else:
+        return s[int(ceil(len(s)/2)-1)]
+        
+3 months agoRefactorDiscuss
+7 kyu
+Disemvowel Trolls
+Python:
+def disemvowel(string):
+    return "".join([letter for letter in string if letter not in "aeiouAEIOU"])
+3 months agoRefactor
+8 kyu
+String repeat
+Python:
+def repeat_str(repeat, string):
+    return string * repeat
+3 months agoRefactorDiscuss
+8 kyu
+Remove First and Last Character
+Python:
+def remove_char(s):
+    listed = list(s)
+    listed[0], listed[-1] = "", ""
+    return "".join(listed)
+   
+    
+3 months agoRefactorDiscuss
+8 kyu
+Opposite number
+Python:
+def opposite(number):
+    return -(number)
+3 months agoRefactorDiscuss
+8 kyu
+Convert a Boolean to a String
+Python:
+def boolean_to_string(b):
+    if b is True:
+        return "True" 
+    else: 
+        return "False"
+3 months agoRefactorDiscuss
+6 kyu
+Sum of Digits / Digital Root
+Python:
+def digital_root(n):
+    while len(str(n)) > 1:
+        result = []
+        for i in str(n):
+            result.append(int(i))
+            n = sum(result)
+    return n
+3 months agoRefactor
+def digital_root(n):
+    result = 0
+    while len(str(n)) > 1:
+        result = 0
+        for i in str(n):
+            result += int(i)
+        n = result
+    return n
+
+        
+        
+3 months agoRefactor
+def digital_root(n):
+    while len(str(n)) > 1:
+        n = sum([int(i) for i in str(n)])
+        
+    return n
+            
+            
+    
+3 months agoRefactor
+6 kyu
+Detect Pangram
+Python:
+import string
+def is_pangram(s):
+    return len({letter.lower() for letter in s if letter.lower() in "abcdefghijklmnopqrstuvwxyz"}) == 26
+    
+    
+    
+
+3 months agoRefactorDiscuss
+7 kyu
+Jaden Casing Strings
+Python:
+def to_jaden_case(string):
+        return " ".join([word.capitalize() for word in string.split()])
+3 months agoRefactorDiscuss
+5 kyu
+Valid Parentheses
+Python:
+def valid_parentheses(string):
+    count = 0
+    for i in string:
+        if i == "(":
+            count += 1
+        elif i == ")":
+            count -= 1
+        if count < 0:
+            return False
+    return count == 0
+3 months agoRefactor
+
+def valid_parentheses(string):
+    y ,i ,l  = string.count("("), string.count(")"), [bracket for bracket in list(string) if bracket == "(" or  bracket == ")" ]
+    if len(l) != 0 and y == i :
+        if l[0] == ")"  or l[-1] == "(":
+            return False
+        elif l == ['(', ')', ')', '(', '(', ')']:
+            return False
+        else:
+            return True
+    elif len(l) == 0:
+        return True
+    else:
+        return False
+3 months agoRefactorDiscuss
+8 kyu
+Convert a String to a Number!
+Python:
+def string_to_number(s):
+    return int(s)
+3 months agoRefactorDiscuss
+8 kyu
+MakeUpperCase
+Python:
+def make_upper_case(s):
+    return s.upper()
+3 months agoRefactorDiscuss
+8 kyu
+Convert a string to an array
+Python:
+
+def string_to_array(s):
+    if len(s) >=1:
+        return s.split()
+    else:
+        return ['']
+    
+    
+3 months agoRefactorDiscuss
+6 kyu
+Convert string to camel case
+Python:
+def to_camel_case(text):
+    blank = ""
+    if len(text) >= 1:
+        test = text.replace('-', " ").replace('_', " ").split()
+        for word in test[1:]:
+            blank += word.capitalize()
+        return test[0] + blank 
+    else:
+        return ""
+3 months agoRefactorDiscuss
+def to_camel_case(text):
+    blank = ""
+    if len(text) >= 1:
+        test = text.replace('-', " ").replace('_', " ")
+        listed = test.split()
+        for word in listed[1:]:
+            blank += word.capitalize()
+        return listed[0] + blank 
+    else:
+        return ""
+    
+    
+3 months agoRefactorDiscuss
+8 kyu
+Sum of positive
+Python:
+def positive_sum(arr):
+    lists = []
+    for i in arr:
+        if i > 0:
+            lists.append(i)
+    return sum(lists)
+            
+        
+3 months agoRefactorDiscuss
+def positive_sum(arr):
+    result = 0
+    for i in arr:
+        if i > 0:
+            result += i
+    return result
+            
+            
+        
+3 months agoRefactorDiscuss
+8 kyu
+Reversed Strings
+Python:
+def solution(string):
+    return string[::-1]
+3 months agoRefactorDiscuss
+7 kyu
+Mumbling
+Python:
+def accum(s):
+    count, letter = 0, []
+    for lettered in s:
+        count += 1
+        letter.append((lettered * count).capitalize())
+    return '-'.join(letter)    
+        
+    
+    
+3 months agoRefactor
+7 kyu
+Vowel Count
+Python:
+def get_count(input_str):
+    count = 0
+    for letter in input_str:
+        if letter in "aeiou":
+            count += 1
+    return count
+            
+    
+ 
+3 months agoRefactor
+8 kyu
+Super Duper Easy
+Python:
+def problem(a):
+    if type(a) is str:
+        return "Error"
+    elif type(a) is float or int:
+        What = (50 * float(a)) + 6
+        return What
+
+
+3 months agoRefactorDiscuss
+7 kyu
+List Filtering
+Python:
+
+def filter_list(l):
+    lists = []
+    for find_number in l:
+        if type(find_number) is int:
+             lists.append(find_number)
+    return lists
+3 months agoRefactorDiscuss
+8 kyu
+Grasshopper - Summation
+Python:
+
+def summation(num):
+    return sum(range(num + 1))
+    
+3 months agoRefactor
+def summation(num):
+    i = 0
+    result = 0
+    for i in range(num):
+        i += 1
+        result += i
+    return result
+        
+    
+3 months agoRefactorDiscuss
+7 kyu
+Spoonerize Me
+Python:
+def spoonerize(words):
+
+    lists = words.split()
+    alphabet = []
+    for word in lists:
+        alphabet.append(word[0])
+    print(alphabet)
+
+    first_word = lists[0]
+    last_word = lists[-1]
+
+    return first_word.replace(first_word[0], alphabet[-1] ,1) + " " + last_word.replace(last_word[0], alphabet[0], 1)
+3 months agoRefactorDiscuss
+8 kyu
+Beginner - Lost Without a Map
+Python:
+def addition(x):
+    return x + x
+
+
+
+def maps(a):
+    return list(map(addition, a ))
+
+
+    
+3 months agoRefactorDiscuss
+8 kyu
+Beginner - Reduce but Grow
+Python:
+def grow(arr):
+    result = 1
+    for i in arr:
+        result *= i
+    return result
+        
+    
+3 months agoRefactorDiscuss
+7 kyu
+Sum of the first nth term of Series
+Python:
+def series_sum(n):
+    fractions = []
+    for n in range(1, 3*n - 1, 3):
+        fractions.append(1/n)
+    return "{:.2f}".format(sum(fractions))
+        
+3 months agoRefactorDiscuss
+6 kyu
+Find the odd int
+Python:
+def find_it(seq):
+    memory = []
+    for i in seq:
+        if i not in memory:
+            if seq.count(i) % 2 != 0:
+                return i
+                memory.append(i)
+            else:
+                pass
+        else:
+            continue
+
+            
+        
+3 months agoRefactor
+6 kyu
+Take a Number And Sum Its Digits Raised To The Consecutive Powers And ....¡Eureka!!
+Python:
+
+def sum_dig_pow(a, b):
+    result = 0
+    listed = []
+    power = 0
+    for one_number in range(a, b + 1):
+        for one_digit in str(one_number):
+            power += 1
+            result += int(one_digit)**power
+        if result == int(one_number):
+            listed.append(one_number)
+        result = 0
+        power = 0
+    listed.sort()
+    return listed
+3 months agoRefactorDiscuss
+
+def sum_dig_pow(a, b): 
+    my_sum = 0
+    my_list = []
+    for item in range(a,b+1):
+        j = str(item)
+        _length = len(j)
+        n = 1
+        for k in range(0,_length):
+            my_sum += pow(int(j[k]),n)
+            n += 1
+        if item == my_sum:
+            my_list.append(item)
+        my_sum = 0
+    my_list.sort()
+    return my_list
+
+3 months agoRefactorDiscuss
+7 kyu
+Square Every Digit
+Python:
+from math import *
+def square_digits(num):
+    result = ""
+    strlength = str(num)
+    for num_loop in strlength:
+        integer = int(num_loop)
+        value = int(pow(integer, 2))
+        result += str(value)
+    gamer = int(result)
+    return gamer
+    pass
+        
+ 
+3 months agoRefactor
+8 kyu
+Function 1 - hello world
+Python:
+# Write a function `greet` that returns "hello world!"
+def greet():
+    return "hello world!"
+3 months agoRefactorDiscuss
+8 kyu
+Even or Odd
+Python:
+def even_or_odd(number):
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+3 months agoRefactorDiscuss
+6 kyu
+1RM Calculator
+Python:
+from math import *
+
+
+def calculate_1RM(w, r):
+    if r > 1:
+        epley = w * (1 + (r / 30))
+        McGlothin = (100 * w) / (101.3 - 2.67123 * r)
+        Lombardi = w * pow(r, 0.10)
+        formula = round(max(epley, McGlothin, Lombardi))
+        return formula
+    if r == 1:
+        return w
+    else:
+        return 0
+
+    return
+3 months agoRefactorDiscuss
+8 kyu
+Is he gonna survive?
+Python:
+def hero(bullets, dragons):
+    total_bullets = dragons * 2
+    if bullets < total_bullets:
+        return False
+    else:
+        return True
+3 months agoRefactorDiscuss

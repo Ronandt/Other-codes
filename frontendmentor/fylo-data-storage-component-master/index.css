@@ -1,0 +1,43 @@
+* {
+    color: white; 
+}
+
+.flex-parent {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+
+.flex-container div {
+    background-color: hsl(228, 56%, 26%)
+}
+
+
+ body {
+    background-image: url('./images/bg-desktop.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100vw 50vh; 
+    background-color:  hsl(229, 57%, 11%);
+
+   
+}
+img[alt="document"], img[alt="folder"], img[alt="upload"] {
+    display: inline-block;
+    background-color: hsl(229, 57%, 11%);
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+#borderradius {
+    border-top-left-radius: 20%;
+}
