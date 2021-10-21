@@ -1,0 +1,16 @@
+Images, javascript, css files
+
+{% extends "base.html"%}
+{% block title %}Login{% endblock %}
+
+{% block content %}<h1>This is the login page</h1>
+{{ text }} {{ user + "s"}}
+{% if boolean == True %}
+Yes it is true!
+
+{% elif %}
+In between
+{% else %}
+No it is not true!
+{% endif %}
+{% endblock %}

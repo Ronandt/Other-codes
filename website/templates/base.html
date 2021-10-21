@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/base.css" crossorigin="anonymous">
+    <title>{% block title %}Test{% endblock %}</title> <!--syntax is to write python logic code inside (e.g for or if stateemnt)-->
+    <!--Defining a block in this base tempalte that can be overriden in a child template  (Child template inherits it) -->
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <button style="background-color: blue;" onclick="">test</button>
+        </div>
+        <div>
+            <button style="background-color: blue;" onclick="">test</button>
+        </div>
+        <div>
+            <button style="background-color: blue;" onclick="">test</button>
+
+        </div>
+
+        <div>
+            {% if user.is_authenticated %} {# from django to check if user is authetncated #}
+            <a href="/logout" id="logout">Logout</a>
+            <a id="home" href="/">Home</a>
+            {% else %}<a href="/login" id="login">Login</a>
+            <a href="/sign-up" id="signUp">Sign up</a>
+            {% endif %}
+
+        </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div>
+        {{ message}} 
+    </div>
+
+    {% else %}
+    <div>
+    {{ message }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <script type="text/javascript" src="{{url_for('static', filename="foo.js") }}></script> <!--Squiggly lines means writing a python expression (variables)-->
+</body>
+</html>

@@ -1,0 +1,35 @@
+{# {% extends "base.html"%}
+{% block title %}Login{% endblock %}
+
+{% block content %}<h1>This is the login page</h1>
+{{ text }} {{ user + "s"}}
+{% if boolean == True %}
+Yes it is true!
+
+Can put elif
+{% else %}
+No it is not true!
+{% endif %}
+{% endblock %} #}
+
+{% extends "base.html"%}
+{% block title %}Login {% endblock %}
+{% block content %}<h1>This is the Login page</h1>
+<form method="POST">
+    <fieldset style="color:green;background-color: blue;">
+    <legend><h3>Sign Up</h3></legend>
+
+    <div>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="Enter email"> <!--Use name for emaikl-->
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password"> <!--Use name for emaikl-->
+    </div>
+
+    <br />
+    <button type="submit" style="color:blue;border-color: black;">SUBMIT</button>
+    </fieldset>
+</form>{% endblock %}

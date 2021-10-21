@@ -1,5 +1,5 @@
 import sys
-def hexConverter():
+def baseConverter():
     while 1:
         try:
             y = float(input("What Number (Press any character to quit): "))
@@ -31,8 +31,6 @@ def hexConverter():
                 n = "".join(p)
             elif 10 < v <= 16:
                 n = "".join([dict[x] if int(x) >= 10 else x for x in p])
-            else:
-                pass
         while y != 0:
             f.append(str(int(y % v)))
             c //= v
@@ -48,4 +46,4 @@ def hexConverter():
 
 
 
-print(hexConverter())
+print(baseConverter())

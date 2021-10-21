@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: grey;
+    color: white;
+    flex-wrap: wrap;
+    flex-direction: row
+
+
+
+}
+
+.navbar > div {
+    background-color: red;
+}
+
+.container {
+    padding: 30px;
+}

@@ -236,8 +236,8 @@ public class pgressJava {
 		
 	}
 	
-	public void sumWhileLoop() {
-		;
+	public double test(double a, double b) {
+		return a * b;
 	}
 	
 	public void wheelOfFortune() {
@@ -261,8 +261,7 @@ public class pgressJava {
 		//Questions.Q6TicketPrice();
 		//Questions.bmi_assess();
 		//Questions.bmi_best();
-		Questions.sumForLoop();
-
+		Questions.test(5.0, 3.0);
 		
 
 		
