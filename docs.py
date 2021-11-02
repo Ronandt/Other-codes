@@ -251,4 +251,4 @@ if user:
   def load_user(id):
     return User.query.get(int(id)) - > usedto reference the loading of users 
  ----------------------------------------views.py-------------------------------------------------
- r
+ 
