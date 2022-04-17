@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vLc0FRG8Bx9eRYFueGcM06v3iiYYJmYC1j4fsXkSAFcX2nJf924H/FN3MLnhiEZUNWkbeIse27lOjOdE0AvGFA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\decla\\Documents\\GitHub\\Other-codes\\TestConsoleApp\\TestConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\decla\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
+  ],
+  "logs": []
+}

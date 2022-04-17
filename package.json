@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "nodemailer": "^6.7.2"
-  }
+  },
+  "name": "other-codes",
+  "version": "1.0.0",
+  "description": "nodejs",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronandt/Other-codes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ronandt/Other-codes/issues"
+  },
+  "homepage": "https://github.com/Ronandt/Other-codes#readme"
 }

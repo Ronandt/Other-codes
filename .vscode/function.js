@@ -1,3 +1,10 @@
-function pow(x, n) {
-    return (x > -1) && (n > -1) ? x ** n : NaN
-  }
+"use strict";
+
+let arr = ["I", "study", "JavaScript"];
+
+// from index 2
+// delete 0
+// then insert "complex" and "language"
+arr.forEach(item, index, array) => {
+    
+}
