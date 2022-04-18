@@ -4,10 +4,12 @@ class PredatoryCreditCard(CreditCard):
     def __init__(self, customer, bank, account, limit, apr):
         super().__init__(customer, bank, account, limit)
         self.__apr = apr
+        self.__charge_no = 0
       
     
 
     def charge(self, price):
+        self.__charge_no += 1
         if price + self.get_balance() > self.get_limit():
             self.make_payment(5)
             return False
@@ -16,7 +18,7 @@ class PredatoryCreditCard(CreditCard):
             return True
 
     def process_month(self):
-        return (1- ((self.__apr + 1)**(1/12))) * self.get_balance()
+        return (1- ((self.__apr + 1)**(1/12))) * self.get_balance() + max(0, self.__charge_no - 10) * 1
 
 if __name__ == "__main__":
     wallet = []
