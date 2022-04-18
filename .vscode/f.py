@@ -76,13 +76,25 @@ print(sum_of_squares_odd(10))
 
 
 def range_constructor():
-    range(50, 10, 81)
-    range(8, -9, -1)
+    return list(range(50, 10, 81)), list(range(8, -9, -1))
 
 
 def num_vowels(text: str):
     len(list(filter(lambda x: x in "aeiou", text)))  # optional
     return len([x for x in text if x in "aeiou"])
+
+
+def inputs():
+    while(1):
+        try: 
+            yes = input("test: ")
+            if yes == "ok":
+                break
+        except EOFError:
+             print("ok")
+        
+
+    
 
 
 def distinct(args):
@@ -94,4 +106,4 @@ def distinct(args):
     return True
 
     # return len({x for x in args}) == len(args)
-print(distinct([1, 2]))
+inputs()
