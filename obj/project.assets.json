@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\decla\\OneDrive\\Documents\\GitHub\\Other-codes\\testconsoleapp\\TestConsoleApp.csproj",
-      "projectName": "TestConsoleApp",
-      "projectPath": "C:\\Users\\decla\\OneDrive\\Documents\\GitHub\\Other-codes\\testconsoleapp\\TestConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\decla\\OneDrive\\Documents\\GitHub\\Other-codes\\Other-codes.csproj",
+      "projectName": "Other-codes",
+      "projectPath": "C:\\Users\\decla\\OneDrive\\Documents\\GitHub\\Other-codes\\Other-codes.csproj",
       "packagesPath": "C:\\Users\\decla\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\decla\\OneDrive\\Documents\\GitHub\\Other-codes\\testconsoleapp\\obj\\",
+      "outputPath": "C:\\Users\\decla\\OneDrive\\Documents\\GitHub\\Other-codes\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\decla\\AppData\\Roaming\\NuGet\\NuGet.Config",

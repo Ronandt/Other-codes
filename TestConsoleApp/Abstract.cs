@@ -38,3 +38,5 @@ namespace TestConsoleApp {
 
 
 }
+
+//dotnet run --project testconsoleapp//dotnet run --project testconsoleapp//dotnet run --project testconsoleapp//dotnet run --project testconsoleapp//dotnet run --project testconsoleapp//dotnet run --project testconsoleapp//dotnet run --project testconsoleapp
