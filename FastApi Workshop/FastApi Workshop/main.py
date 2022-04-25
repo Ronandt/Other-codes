@@ -33,7 +33,7 @@ def page_home(request: Request):
 Creation of Notes
 """
 
-
+(lambda x: x*2)(3)
 @app.get("/create", response_class=HTMLResponse)  # Return HTML file
 def page_create_notes(request: Request):
     return templates.TemplateResponse(

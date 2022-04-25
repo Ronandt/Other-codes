@@ -18,7 +18,7 @@ class PredatoryCreditCard(CreditCard):
             return True
 
     def process_month(self):
-        return (1- ((self.__apr + 1)**(1/12))) * self.get_balance() + max(0, self.__charge_no - 10) * 1
+        return (1- ((self.__apr + 1)**(1/12)))  + max(0, self.__charge_no - 10) * 1
 
 if __name__ == "__main__":
     wallet = []

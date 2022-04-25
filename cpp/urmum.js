@@ -1,0 +1,1 @@
+console.log("%cHello world", `background: linear-gradient(#E66465, #fff)`)
