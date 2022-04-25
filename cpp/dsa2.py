@@ -5,16 +5,14 @@ class PredatoryCreditCard(CreditCard):
         super().__init__(customer, bank, account, limit)
         self.__apr = apr
         self.__charge_no = 0
-      
     
-
     def charge(self, price):
         self.__charge_no += 1
         if price + self.get_balance() > self.get_limit():
             self.make_payment(5)
             return False
         else:
-            self.make_payment(-5)
+            self.make_payment(-price)
             return True
 
     def process_month(self):
