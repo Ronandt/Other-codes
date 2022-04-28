@@ -104,6 +104,8 @@ namespace TestConsoleApp
                 Console.WriteLine(Lecturer.test());
                 Console.WriteLine((bool?)null);
 
+                Func<string, string> foo = (strings) => strings;
+
 
 
             }
